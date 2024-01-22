@@ -12,7 +12,7 @@
   <body>
         <img class="bg-img" src="images/00/107學年度問題導向課程校外教學 4.jpg" alt="">
         <!-- Navbar-------------------------------------------------------- -->
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top shadow">
           <div class="container">
             <a class="navbar-brand" href="#">長安老師的雲端教室</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,6 +30,7 @@
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="#table07">評審</a></li>
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="#table08">著作</a></li>
               </ul>
+                <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">連絡資訊</button>
       
             </div>
           </div>
@@ -653,27 +654,56 @@
         <!-- 聯絡方式-------------------------------------------------------- -->    
         <div class=" bg-dark pt-3" id="footer">
               <table class="table table-borderless footer">
-                <tbody>
-                <tr>
-                  <td class="bg-dark text-light text-end">地址</td>
-                  <td class="bg-dark text-light">第一校區 824005 高雄市燕巢區大學路1號</td>
-                </tr>                
-                <tr>                 
-                  <td class="bg-dark text-light text-end">電話</td>
-                  <td class="bg-dark text-light">07-6011000&nbsp;&nbsp;#35010</td>
-                </tr>
-                <tr>
-                  <td class="bg-dark text-light text-end">郵件</td>
-                  <td class="bg-dark text-light">shizumi@nkust.edu.tw</td>
-                </tr>
-              </tbody>
+                   <tbody>
+                   <tr>
+                     <td class="bg-dark text-light text-end">地址</td>
+                     <td class="bg-dark text-light">第一校區 824005 高雄市燕巢區大學路1號</td>
+                   </tr>                
+                   <tr>                 
+                     <td class="bg-dark text-light text-end">電話</td>
+                     <td class="bg-dark text-light">07-6011000&nbsp;&nbsp;#35010</td>
+                   </tr>
+                   <tr>
+                     <td class="bg-dark text-light text-end">郵件</td>
+                     <td class="bg-dark text-light">shizumi@nkust.edu.tw</td>
+                   </tr>
+                  </tbody>
               </table>
+        <div class="bg-dark text-center text-secondary">
+          &copy; 2024 Nagayasu Shizumi All Rights Reserved.
         </div>
-        <div class="bg-dark text-center text-light pb-1">
-          <div class="text-secondary"><br>&copy; 2024 Nagayasu Shizumi All Rights Reserved.</div>
         </div>
-      
         
+        
+
+        <div class="bg-dark offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <table class="table table-borderless footer">
+              <tbody>
+              <tr>
+                <td class="bg-dark text-light text-end">地址</td>
+                <td class="bg-dark text-light">第一校區 824005 高雄市燕巢區大學路1號</td>
+              </tr>
+              <tr>
+                <td class="bg-dark text-light text-end">電話</td>
+                <td class="bg-dark text-light">07-6011000&nbsp;&nbsp;#35010</td>
+              </tr>
+              <tr>
+                <td class="bg-dark text-light text-end">郵件</td>
+                <td class="bg-dark text-light">shizumi@nkust.edu.tw</td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="bg-dark text-center text-secondary">
+              &copy; 2024 Nagayasu Shizumi All Rights Reserved.
+            </div>
+          </div>
+        </div>
         
         <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
