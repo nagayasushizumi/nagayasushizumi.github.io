@@ -55,9 +55,12 @@
     <div class="my-2 p-2"></div>
     <div class="my-5 p-5"></div>
   </div>
+  <div id="photoAlbum"></div>
   <!-- updateArea-------------------------------------------------------- -->
-  <div id="updateArea">
+  <div class="container">
+    <div id="updateArea" class="row">
 
+    </div>
   </div>
   <!-- 聯絡方式-------------------------------------------------------- -->
   <div class=" bg-01396d pt-3" id="footer">
@@ -194,7 +197,105 @@
         }
       });
     });
+    
+    // 使用 GitHub API 檢索存儲庫中的目錄列表-----------------------------------------
+    function fetchDirectoryContents(owner, repo, path) {
+    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+
+    return fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const promises = data.map(item => {
+                if (item.type === 'dir') {
+                    // 如果是目录，递归调用
+                    return fetchDirectoryContents(owner, repo, item.path).then(contents => {
+                        return { name: item.name, type: 'dir', contents };
+                    });
+                } else if (item.type === 'file') {
+                    // 如果是文件，返回文件信息
+                    return { name: item.name, type: 'file', download_url: item.download_url };
+                }
+            });
+
+            // 等待所有 promises 完成
+            return Promise.all(promises);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+      }
+
+      //調用fetchDirectoryContents方法-----------------------------------------
+      const owner = 'nagayasushizumi';
+      const repo = 'nagayasushizumi.github.io';
+      const path = 'images/01';
+
+      
+
+      fetchDirectoryContents(owner, repo, path)
+          .then(folders => {
+            //利用folders的name生成 Navbar的下拉選單
+              console.log("8.載入相簿",folders);
+
+              createPhotoAlbum(folders);
+              console.log("9.載入照片",folders);
+          });
+
+     function updateDropdownAlbumList(folders) {
+      const dropdownMenu = document.querySelector('.navbar-nav .dropdown-menu');
+      console.log("7.updateDropdownAlbumList更", dropdownMenu);
+      dropdownMenu.innerHTML = ''; // 清空现有内容
+
+     }
+               
+
+// 創建相冊-----------------------------------------
+    function createPhotoAlbum(folders) {
+    const albumContainer = document.getElementById('photoAlbum');
+    albumContainer.innerHTML = ''; // 清空现有内容
+
+    folders.forEach(folder => {
+        // 创建相册标题
+        const albumTitle = document.createElement('h3');
+        albumTitle.textContent = folder.name;
+        albumTitle.className = 'album-title'; // 可以添加CSS类进行样式设置  
+        albumContainer.appendChild(albumTitle);
+
+        // 创建包含图片的div
+        const imageContainer = document.createElement('div');
+        imageContainer.className = 'image-container'; // 可以添加CSS类进行样式设置
+
+        // 遍历每个文件，创建图片卡片
+        folder.contents.forEach(file => {
+            if (file.type === 'file') {
+                const imageCard = document.createElement('div');
+                imageCard.className = 'image-card'; // 添加CSS类
+
+                const image = document.createElement('img');
+                image.className = 'object-fit-fill border rounded'
+                image.src = file.download_url;
+                image.alt = file.name;
+
+                // const caption = document.createElement('p');
+                // caption.textContent = file.name;
+
+                imageCard.appendChild(image);
+                //imageCard.appendChild(caption);
+                imageContainer.appendChild(imageCard);
+            }
+        });
+
+        albumContainer.appendChild(imageContainer);
+    });
+}
   </script>
+
+"card col-xl-3 col-lg-4 col-md-6"
 </body>
 
 </html>
