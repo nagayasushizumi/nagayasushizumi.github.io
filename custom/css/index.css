@@ -34,14 +34,14 @@
 }
 
 /* ------------------- */
-#photoAlbum {
-    margin-left: 20px;
+#albumContent {
+    margin: 20px;
 }
 
 .image-container {
     display: flex;
     flex-wrap: wrap;
-    align-items: stretch;
+    /* align-items: stretch; */
     gap: 10px;
 }
 
@@ -58,11 +58,11 @@
     height: 100%; /* 高度充满容器 */
     width: auto; /* 宽度自适应 */
     object-fit: cover; /* 超出部分将被裁剪 */
+    justify-content: center;
 }
 
 .album-title {
     padding: 5px 0px;
-    margin-top: 40px;
 }
 
 /* 
@@ -70,4 +70,15 @@
     text-align: center;
     padding: 4px 10px;
 } */
+
+@media (max-width: 768px) { 
+    .dropdown-menu {
+        max-width: 90%;
+    }
+}
+
+#album-List, hr {
+    margin: 0;
+    padding: 0;
+}
 
