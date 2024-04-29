@@ -81,7 +81,7 @@ function initialAlbumContent(){
               imageCard.className = "image-card"; // 添加CSS类
 
               const image = document.createElement("img");
-              image.className = "object-fit-fill border rounded";
+              image.className = "object-fit-fill border ";
               image.src = file.download_url;
               image.alt = file.name;
 

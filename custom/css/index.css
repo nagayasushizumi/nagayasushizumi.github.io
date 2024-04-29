@@ -52,6 +52,8 @@
     justify-content: center;
     align-items: center;
     height: 200px; /* 固定高度 */
+    flex: 1 1 200px;
+    border-radius: 8px;
 }
 
 .image-card img {
@@ -59,10 +61,15 @@
     width: auto; /* 宽度自适应 */
     object-fit: cover; /* 超出部分将被裁剪 */
     justify-content: center;
+    border-radius: 8px;
 }
 
 .album-title {
     padding: 5px 0px;
+    text-align: center;
+    background-color: #77a1c9;
+    color: #ffffff;
+    border-radius: 8px;
 }
 
 /* 
