@@ -14,15 +14,35 @@ function initialResumeContent() {
 };
 
 function fetchAlbumPath() {
+  const albumPathData = localStorage.getItem("albumPath");
+  const timestamp = localStorage.getItem("albumPathTimestamp");
+  const now = Date.now();
+  const timeElapsed = now - timestamp;  // 已經過去的時間
+
+    //先檢查storage是否有資料，有的話就直接用
+  if (albumPathData && timeElapsed < 86400000) {
+    //距離過期還有幾小時、幾分鐘、幾秒
+    const remainingTime = 86400000 - timeElapsed;
+    const remainingHours = Math.floor(remainingTime / 3600000);
+    const remainingMinutes = Math.floor((remainingTime % 3600000) / 60000);
+    const remainingSeconds = Math.floor((remainingTime % 60000) / 1000);
+    albumPath = JSON.parse(albumPathData); 
+    console.log("2a.從 localstorage 取用 albumPath 存到全域變數 albumPath：", albumPath);
+    console.log("2a. localStorage 的 albumPath 資料，距離過期還有：", remainingHours, "小時", remainingMinutes, "分鐘", remainingSeconds, "秒");
+    initialAlbumContent();
+    updateAlbumList();
+    return;
+  } else {
   const owner = "nagayasushizumi";
   const repo = "nagayasushizumi.github.io";
   const basePath = "images/01";
   const apiBase = `https://api.github.com/repos/${owner}/${repo}/contents/`;
 
   function fetchPath(path){ 
+    console.log("2b.執行fetchPath函式，path是：", path);
     return fetch(`${apiBase}${path}`)
-      .then(response => {
-        if (!response.ok) {
+    .then(response => {
+      if (!response.ok) {
           throw new Error(`GitHub API response was not ok for path: ${path}`);
         }
         return response.json();
@@ -46,7 +66,11 @@ function fetchAlbumPath() {
   fetchPath(basePath)
     .then(data => {
       albumPath = data;
-      console.log("2.全域變數 albumPath 的內容是：", albumPath);
+      console.log("2c.localStorage的albumPath資料重新");
+      //也存一份Array資料在localStorage，也存一個timestamp，之後用來檢查是否過期
+      localStorage.setItem("albumPath", JSON.stringify(albumPath));
+      localStorage.setItem("albumPathTimestamp", Date.now());
+      console.log("2c.全域變數 albumPath 的內容是：", albumPath);
     }).then(() => {
       initialAlbumContent();
       updateAlbumList();
@@ -54,6 +78,7 @@ function fetchAlbumPath() {
     .catch(error => {
       console.error('Failed to fetch directory contents:', error);
     });
+  }
 }
 
 // 從 albumPath 生成相簿的 element
@@ -161,7 +186,8 @@ function switchPageContent(link) {
     $("#albumContent").addClass("d-block").removeClass("d-none"); // 显示相簿
     currentPage = url;
     //點擊相簿的子相本a標籤時，用 Bootstrap 5 的方式來關閉下拉清單以及導航列，如果 上一層漢堡選單 現在有開啟，才會執行關閉它
-    console.log("8.關閉漢堡選單",($(".navbar-toggler").attr("aria-expanded") === "true"));
+    console.log("8.漢堡選單狀態",($(".navbar-toggler").attr("aria-expanded") === "true"));
+    console.log("8a 檢查albumPath ：", albumPath);
     if ($(".navbar-toggler").attr("aria-expanded") === "true") {
       $(".navbar-toggler").click();
     }
