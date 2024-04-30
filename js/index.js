@@ -157,6 +157,13 @@ function updateAlbumList(){
       return false;
     };
     albumItem.appendChild(albumLink);
+    
+    //生成hr元素，除了最後一個元素
+    if (index < albumPath.length - 1) {
+      const hr = document.createElement("hr");
+      albumItem.appendChild(hr);
+    }
+
     albumList.appendChild(albumItem);
   });
 }
