@@ -35,7 +35,7 @@
 
 /* ------------------- */
 #albumContent {
-    margin: 20px;
+    margin: 40px 10px;
 }
 
 .image-container {
@@ -65,18 +65,20 @@
 }
 
 .album-title {
-    padding: 5px 0px;
+    padding: 10px 0px;
     text-align: center;
     background-color: #77a1c9;
     color: #ffffff;
-    border-radius: 8px;
+    border-radius: 8px 8px 0px 0px;
+    scroll-padding-top: 100px
 }
 
-/* 
-.image-card p {
-    text-align: center;
-    padding: 4px 10px;
-} */
+@media (min-width: 992px) {
+    .modal-lg,
+    .modal-xl {
+      --bs-modal-width: 635px;
+    }
+  }
 
 @media (max-width: 768px) { 
     .dropdown-menu {
@@ -88,4 +90,5 @@
     margin: 0;
     padding: 0;
 }
+
 
