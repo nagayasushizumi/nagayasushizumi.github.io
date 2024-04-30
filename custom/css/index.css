@@ -3,7 +3,7 @@
     height:100%;
     object-fit: cover;
     /*filter:brightness(0.6);*/
-    position:absolute;
+    position:fixed;
     top:0;
     left:0;
     z-index: -1;
@@ -17,6 +17,12 @@
     width: 400px;
     max-width: 80%;
     height: auto;
+}
+
+.page1 {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
 }
 
 .footer {

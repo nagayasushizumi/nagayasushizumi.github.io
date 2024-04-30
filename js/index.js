@@ -90,7 +90,7 @@ function initialAlbumContent(){
     const subDiv = document.createElement("div");
     albumContainer.appendChild(subDiv);
     subDiv.id = `album${index + 1}`;
-    subDiv.className = "my-5 py-2 round shadow bg-light rounded ";
+    subDiv.className = "my-5 py-3 round shadow bg-light rounded ";
     const albumTitle = document.createElement("h3");
     albumTitle.textContent = folder.name;
     albumTitle.className = "album-title"; 
