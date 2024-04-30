@@ -76,31 +76,45 @@ function initialAlbumContent(){
 
     // 遍歷 folder，創建圖片卡
     folder.contents.forEach((file) => {
-            if (file.type === "file") {
-              const imageCard = document.createElement("div");
-              imageCard.className = "image-card"; // 添加CSS类
+      if (file.type === "file") {
+        const imageCard = document.createElement("div");
+        imageCard.className = "image-card";
 
-              const image = document.createElement("img");
-              image.className = "object-fit-fill border ";
-              image.src = file.download_url;
-              image.alt = file.name;
+        const image = document.createElement("img");
+        image.className = "object-fit-fill border ";
+        image.src = file.download_url;
+        image.alt = file.name;
 
-              //  const caption = document.createElement('p');
-              //  caption.textContent = file.name;
+        // 添加點擊事件監聽器以打開模態窗口
+        image.onclick = function() {
+          const modalImage = document.getElementById('modalImage');
+          modalImage.src = this.src; // 設置模態窗口中的圖像URL
+          
+          // 處理文件名，去掉副檔名
+          const fileName = file.name.split('.'); // 分割文件名和副檔名
+          fileName.pop(); // 移除數組中的最後一個元素（副檔名）
+          const cleanName = fileName.join('.'); // 重新組合為處理過的文件名
 
-              imageCard.appendChild(image);
-              //imageCard.appendChild(caption);
-              imageContainer.appendChild(imageCard);
-            }
-          }
-        );
-        console.log(`4 - ${index + 1}.subDiv 生成的相簿內容是：`, subDiv);
-        subDiv.appendChild(imageContainer);
-      albumContainer.appendChild(subDiv);
-    }
-  );
-  console.log("5.albumContainer生成的相簿內容是：", albumContainer);
+          const modalTitle = document.getElementById('imageModalLabel');
+          modalTitle.textContent = cleanName; // 設置模態窗口標題為處理後的文件名
+
+          const modal = new bootstrap.Modal(document.getElementById('imageModal'),{
+            keyboard: true,
+            focus: true
+          });
+          modal.show();
+        };
+
+        imageCard.appendChild(image);
+        imageContainer.appendChild(imageCard);
+      }
+    });
+
+    subDiv.appendChild(imageContainer);
+    albumContainer.appendChild(subDiv);
+  });
 }
+
 
 //生成下拉選單-----------------------------------------
 function updateAlbumList(){
