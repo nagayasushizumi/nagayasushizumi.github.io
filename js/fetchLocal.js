@@ -14,16 +14,41 @@ function initialResumeContent() {
 };
 
 function fetchAlbumPath() {
-  //從json檔讀內容寫入 albumPath-----------------------------------------
-  fetch("/images/directory_structure.json")
-    .then((response) => response.json())
-    .then((data) => {
-      albumPath = data;
-      console.log("2a.從本地 json 檔讀取的 albumPath 內容是：", albumPath);
-      initialAlbumContent();
-      updateAlbumList();
-    });
+  const albumPathData = localStorage.getItem("albumPath");
+  const timestamp = localStorage.getItem("albumPathTimestamp");
+  const now = Date.now();
+  const timeElapsed = now - timestamp;
+
+  if (albumPathData && timeElapsed < 86400000) {
+    // 本地存储中的数据仍然有效
+    const remainingTime = 86400000 - timeElapsed;
+    const remainingHours = Math.floor(remainingTime / 3600000);
+    const remainingMinutes = Math.floor((remainingTime % 3600000) / 60000);
+    const remainingSeconds = Math.floor((remainingTime % 60000) / 1000);
+    albumPath = JSON.parse(albumPathData);
+    console.log("2a.從 localstorage 取用 albumPath 存到全域變數 albumPath：", albumPath);
+    console.log("2a. localStorage 的 albumPath 資料，距離過期還有：", remainingHours, "小時", remainingMinutes, "分鐘", remainingSeconds, "秒");
+    initialAlbumContent();
+    updateAlbumList();
+  } else {
+    // 本地存储中的数据过期或不存在，从本地 JSON 文件加载数据
+    fetch("/images/directory_structure.json")
+      .then((response) => response.json())
+      .then((data) => {
+        albumPath = data;
+        console.log("2a.從本地 json 檔讀取的 albumPath 內容是：", albumPath);
+        // 更新 localStorage
+        localStorage.setItem("albumPath", JSON.stringify(albumPath));
+        localStorage.setItem("albumPathTimestamp", Date.now());
+        initialAlbumContent();
+        updateAlbumList();
+      })
+      .catch(error => {
+        console.error('Failed to load local JSON data:', error);
+      });
+  }
 }
+
 
 // 從 albumPath 生成相簿的 element
 function initialAlbumContent(){
@@ -128,7 +153,7 @@ function switchPageContent(link) {
     });
     console.log("7a.已經在當前頁面，不需要切換");
    } 
-   
+
   // 根据 URL 切换显示内容
   if (url === "/pages/albums.html") {
     $("#resumeContent").removeClass("d-block").addClass("d-none"); // 隱藏履歷
