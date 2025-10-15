@@ -404,3 +404,4 @@ FodyWeavers.xsd
 /.idea/.idea.01_Teaching Portfolio.dir/.idea/vcs.xml
 /.idea
 /Web.config
+.DS_Store
