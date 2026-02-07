@@ -6,19 +6,41 @@
   let resumeContent = null; // 用來放履歷的 element
   let albumPath = null;  // 用來存放相簿的文字檔、圖片檔路徑
 
-  // 論文資料管理 - 從 JSON 檔案載入
+  // 論文資料管理 - 從 JSON 檔案載入,使用 localStorage 快取
   let publicationsData = [];
 
   function fetchPublicationsData() {
-    fetch("/publications/publications.json")
-      .then(response => response.json())
-      .then(data => {
-        publicationsData = data;
-        console.log("論文資料已載入:", publicationsData);
-      })
-      .catch(error => {
-        console.error("載入論文資料失敗:", error);
-      });
+    const publicationsDataCache = localStorage.getItem("publicationsData");
+    const timestamp = localStorage.getItem("publicationsDataTimestamp");
+    const now = Date.now();
+    const timeElapsed = now - timestamp;  // 已經過去的時間
+
+    // 先檢查 localStorage 是否有資料,有的話就直接用
+    if (publicationsDataCache && timeElapsed < 86400000) {
+      // 距離過期還有幾小時、幾分鐘、幾秒
+      const remainingTime = 86400000 - timeElapsed;
+      const remainingHours = Math.floor(remainingTime / 3600000);
+      const remainingMinutes = Math.floor((remainingTime % 3600000) / 60000);
+      const remainingSeconds = Math.floor((remainingTime % 60000) / 1000);
+      publicationsData = JSON.parse(publicationsDataCache);
+      console.log("論文資料從 localStorage 載入:", publicationsData);
+      console.log("localStorage 的論文資料,距離過期還有:", remainingHours, "小時", remainingMinutes, "分鐘", remainingSeconds, "秒");
+      return;
+    } else {
+      // localStorage 沒有資料或已過期,重新從 JSON 檔案載入
+      fetch("/publications/publications.json")
+        .then(response => response.json())
+        .then(data => {
+          publicationsData = data;
+          // 存入 localStorage 並記錄時間戳
+          localStorage.setItem("publicationsData", JSON.stringify(publicationsData));
+          localStorage.setItem("publicationsDataTimestamp", Date.now());
+          console.log("論文資料已從 JSON 載入並快取:", publicationsData);
+        })
+        .catch(error => {
+          console.error("載入論文資料失敗:", error);
+        });
+    }
   }
 
   function initialResumeContent() {
