@@ -1,99 +1,129 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>長安静美</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/custom/css/index.css" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/00/favicon.ico">
-  </head>
 
-  <body>
-    <div id="Navbar">
-      <!-- Navbar-------------------------------------------------------- -->
-      <nav
-        class="navbar navbar-expand-md bg-01396d navbar-dark fixed-top shadow"
-      >
-        <div class="container">
-          <a id="" class="navbar-brand" href="#" onclick="switchPageContent(this); return false;">長安静美</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="" ><i class="fa-regular fa-image"></i></a>
-                <ul id="album-List" class="dropdown-menu text-nowrap shadow">
-                  <li><a class="nav-link text-dark mx-2" data-url="/pages/albums.html" href="#album01" onclick="switchPageContent(this); return false;">錯誤代碼 403：超出請求次數</a></li>
-                </ul>
-              </li>
-              <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table01" onclick="switchPageContent(this); return false;">教學經歷</a></li>
-              <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table02" onclick="switchPageContent(this); return false;">任教課程</a></li>
-              <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table03" onclick="switchPageContent(this); return false;">獲獎記錄</a></li>
-              <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table04" onclick="switchPageContent(this); return false;">研習紀錄</a></li>
-              <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table05" onclick="switchPageContent(this); return false;">校內補助計畫</a></li>
-              <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table51" onclick="switchPageContent(this); return false;">產學合作</a></li>
-              <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table06" onclick="switchPageContent(this); return false;">校內外講座演講</a></li>
-              <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table07" onclick="switchPageContent(this); return false;">評審</a></li>
-              <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table08" onclick="switchPageContent(this); return false;">著作</a></li>
-              <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table99" onclick="switchPageContent(this); return false;">連絡資訊</a></li>
-            </ul>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>長安静美</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/custom/css/index.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/00/favicon.ico">
+</head>
+
+<body>
+  <div id="Navbar">
+    <!-- Navbar-------------------------------------------------------- -->
+    <nav class="navbar navbar-expand-md bg-01396d navbar-dark fixed-top shadow">
+      <div class="container">
+        <a id="" class="navbar-brand" href="#" onclick="switchPageContent(this); return false;">長安静美</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                href=""><i class="fa-regular fa-image"></i></a>
+              <ul id="album-List" class="dropdown-menu text-nowrap shadow">
+                <li><a class="nav-link text-dark mx-2" data-url="/pages/albums.html" href="#album01"
+                    onclick="switchPageContent(this); return false;">錯誤代碼 403：超出請求次數</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table01"
+                onclick="switchPageContent(this); return false;">教學經歷</a></li>
+            <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table02"
+                onclick="switchPageContent(this); return false;">任教課程</a></li>
+            <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table03"
+                onclick="switchPageContent(this); return false;">獲獎記錄</a></li>
+            <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table04"
+                onclick="switchPageContent(this); return false;">研習紀錄</a></li>
+            <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table05"
+                onclick="switchPageContent(this); return false;">校內補助計畫</a></li>
+            <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table51"
+                onclick="switchPageContent(this); return false;">產學合作</a></li>
+            <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table06"
+                onclick="switchPageContent(this); return false;">校內外講座演講</a></li>
+            <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table07"
+                onclick="switchPageContent(this); return false;">評審</a></li>
+            <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table08"
+                onclick="switchPageContent(this); return false;">著作</a></li>
+            <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table99"
+                onclick="switchPageContent(this); return false;">連絡資訊</a></li>
+          </ul>
         </div>
-      </nav>
-      <div class="my-2 p-2"></div>
-    </div>
-    <!-- resumeContent-------------------------------------------------------- -->
-    <div id="resumeContent" class="container"></div>
-    <div id="albumContent" class="d-none"></div>
-<!-- Modal -->
-<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="imageModalLabel">Image Preview</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <img id="modalImage" src="" class="img-fluid" alt="Enlarged image">
+    </nav>
+    <div class="my-2 p-2"></div>
+  </div>
+  <!-- resumeContent-------------------------------------------------------- -->
+  <div id="resumeContent" class="container"></div>
+  <div id="albumContent" class="d-none"></div>
+  <!-- Modal -->
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imageModalLabel">Image Preview</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img id="modalImage" src="" class="img-fluid" alt="Enlarged image">
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-    <!-- 聯絡方式-------------------------------------------------------- -->
-    <div class="bg-01396d pt-3" id="footer">
-              <table class="table table-borderless footer" id="table99">
-                   <tbody>
-                   <tr>
-                     <td style="background-color: #01396d;" class="text-light text-end"><a href="https://maps.app.goo.gl/gUAscx3zjeWEiGRF9" class="link-light" title="youtube link"><i class="fa-regular fa-map"></i></a></td>
-                     <td style="background-color: #01396d;" class="text-light"><a href="https://maps.app.goo.gl/kt48QvRWuVSrztw99" class="link-light">〒824005  高雄市燕巢區大學路1號</a></td>
-                   </tr>                
-                   <tr>                 
-                     <td style="background-color: #01396d;" class="text-light text-end"><i class="fa-solid fa-phone"></i></td>
-                     <td style="background-color: #01396d;" class="text-light">07 - 6011000&nbsp;&nbsp;#35010</td>
-                   </tr>
-                   <tr>
-                     <td style="background-color: #01396d;" class="text-light text-end"><a href="mailto:shizumi@nkust.edu.tw" class="link-light" title="youtube link"><i class="fa-regular fa-envelope"></i></a></td>
-                     <td style="background-color: #01396d;" class="text-light"><a href="mailto:shizumi@nkust.edu.tw" class="link-light"> shizumi@nkust.edu.tw</a></td>
-                   </tr>
-                  </tbody>
-              </table>
-      <div class="bg-01396d text-center text-secondary">
-        &copy; 2024 Nagayasu Shizumi All Rights Reserved.
+  <!-- Publication Modal -->
+  <div class="modal fade" id="publicationModal" tabindex="-1" aria-labelledby="publicationModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="publicationModalLabel">論文檢視</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="publicationModalBody">
+          <!-- 內容將由 JavaScript 動態生成 -->
+        </div>
       </div>
     </div>
+  </div>
 
-    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/jquery-3.7.1.min.js"></script>
-    <script src="/js/index.js"></script>
-  </body>
+  <!-- 聯絡方式-------------------------------------------------------- -->
+  <div class="bg-01396d pt-3" id="footer">
+    <table class="table table-borderless footer" id="table99">
+      <tbody>
+        <tr>
+          <td style="background-color: #01396d;" class="text-light text-end"><a
+              href="https://maps.app.goo.gl/gUAscx3zjeWEiGRF9" class="link-light" title="youtube link"><i
+                class="fa-regular fa-map"></i></a></td>
+          <td style="background-color: #01396d;" class="text-light"><a href="https://maps.app.goo.gl/kt48QvRWuVSrztw99"
+              class="link-light">〒824005 高雄市燕巢區大學路1號</a></td>
+        </tr>
+        <tr>
+          <td style="background-color: #01396d;" class="text-light text-end"><i class="fa-solid fa-phone"></i></td>
+          <td style="background-color: #01396d;" class="text-light">07 - 6011000&nbsp;&nbsp;#35010</td>
+        </tr>
+        <tr>
+          <td style="background-color: #01396d;" class="text-light text-end"><a href="mailto:shizumi@nkust.edu.tw"
+              class="link-light" title="youtube link"><i class="fa-regular fa-envelope"></i></a></td>
+          <td style="background-color: #01396d;" class="text-light"><a href="mailto:shizumi@nkust.edu.tw"
+              class="link-light"> shizumi@nkust.edu.tw</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="bg-01396d text-center text-secondary">
+      &copy; 2024 Nagayasu Shizumi All Rights Reserved.
+    </div>
+  </div>
+
+  <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/jquery-3.7.1.min.js"></script>
+  <script src="/js/index.js"></script>
+</body>
+
 </html>
