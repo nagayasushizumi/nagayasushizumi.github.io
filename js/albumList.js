@@ -1,8 +1,11 @@
 const fs = require('fs').promises;
 const path = require('path');
 
-const rootDirectory = "../images/01"; // 假定的根目錄
-const outputPath = "../images/directory_structure.json"; // 指定輸出JSON文件的路徑
+// 根據執行環境自動調整路徑
+// GitHub Actions 中工作目錄是 repository 根目錄
+// 本地執行時工作目錄是 js/ 資料夾
+const rootDirectory = process.env.GITHUB_ACTIONS ? "images/01" : "../images/01";
+const outputPath = process.env.GITHUB_ACTIONS ? "images/directory_structure.json" : "../images/directory_structure.json";
 const baseDirectory = path.resolve(__dirname, rootDirectory); // 為相對路徑提供一個基準點
 
 async function fetchLocalPath(localPath) {

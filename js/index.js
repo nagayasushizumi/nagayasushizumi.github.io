@@ -73,50 +73,22 @@
       updateAlbumList();
       return;
     } else {
-      const owner = "nagayasushizumi";
-      const repo = "nagayasushizumi.github.io";
-      const basePath = "images/01";
-      const apiBase = `https://api.github.com/repos/${owner}/${repo}/contents/`;
-
-      function fetchPath(path) {
-        console.log("2b.執行fetchPath函式，path是：", path);
-        return fetch(`${apiBase}${path}`)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(`GitHub API response was not ok for path: ${path}`);
-            }
-            return response.json();
-          })
-          .then(data => {
-            return Promise.all(data.map(item => {
-              if (item.type === "file") {
-                return {
-                  name: item.name,
-                  type: "file",
-                  download_url: item.download_url
-                };
-              } else if (item.type === "dir") {
-                return fetchPath(`${path}/${item.name}`).then(contents => {
-                  return { name: item.name, type: "dir", contents };
-                });
-              }
-            }));
-          });
-      }
-      fetchPath(basePath)
+      // localStorage 沒有資料或已過期，從靜態 JSON 檔案載入
+      fetch("/images/directory_structure.json")
+        .then(response => response.json())
         .then(data => {
           albumPath = data;
-          console.log("2c.localStorage的albumPath資料重新");
-          //也存一份Array資料在localStorage，也存一個timestamp，之後用來檢查是否過期
+          // 存入 localStorage 並記錄時間戳
           localStorage.setItem("albumPath", JSON.stringify(albumPath));
           localStorage.setItem("albumPathTimestamp", Date.now());
-          console.log("2c.全域變數 albumPath 的內容是：", albumPath);
-        }).then(() => {
+          console.log("2b.相簿資料已從 JSON 載入並快取:", albumPath);
+        })
+        .then(() => {
           initialAlbumContent();
           updateAlbumList();
         })
         .catch(error => {
-          console.error('Failed to fetch directory contents:', error);
+          console.error('載入相簿資料失敗:', error);
         });
     }
   }

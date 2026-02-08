@@ -1,0 +1,30 @@
+name: Update Album Directory Structure
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'images/01/**'
+
+jobs:
+  update-album-json:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Generate album directory structure JSON
+        run: node js/albumList.js
+        
+      - name: Commit and push if changed
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Auto-update album directory structure'
+          file_pattern: 'images/directory_structure.json'
