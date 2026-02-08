@@ -180,6 +180,9 @@
     });
   }
 
+  // 更新版權年份
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+
   initialResumeContent();
   fetchAlbumPath();
   fetchPublicationsData();
