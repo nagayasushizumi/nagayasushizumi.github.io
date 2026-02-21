@@ -91,6 +91,16 @@
     white-space: nowrap;
 }
 
+[id^="course-"],
+[id^="award-"],
+[id^="pub-"] {
+    scroll-margin-top: 60px;
+}
+
+[id^="album"] {
+    scroll-margin-top: 50px;
+}
+
 .dropdown-menu,
 hr {
     margin: 0;
