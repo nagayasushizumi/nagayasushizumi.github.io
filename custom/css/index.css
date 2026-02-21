@@ -45,32 +45,22 @@
 }
 
 .image-container {
-    display: flex;
-    flex-wrap: wrap;
-    /* align-items: stretch; */
-    gap: 10px;
+    columns: 4 200px;
+    column-gap: 8px;
 }
 
 .image-card {
-    flex-direction: row;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px;
-    /* 固定高度 */
-    flex: 1 1 200px;
+    margin-bottom: 8px;
     border-radius: 8px;
+    break-inside: avoid;
 }
 
 .image-card img {
-    height: 100%;
-    /* 高度充滿容器 */
-    width: auto;
-    /* 寬度自適應 */
+    width: 100%;
+    height: auto;
+    display: block;
     object-fit: cover;
-    /* 超出部分將被裁剪 */
-    justify-content: center;
     border-radius: 8px;
 }
 
