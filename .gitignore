@@ -405,3 +405,5 @@ FodyWeavers.xsd
 /.idea
 /Web.config
 .DS_Store
+
+USER_GUIDE.md

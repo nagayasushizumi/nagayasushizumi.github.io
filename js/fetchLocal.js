@@ -20,7 +20,7 @@ function fetchAlbumPath() {
   const timeElapsed = now - timestamp;
 
   if (albumPathData && timeElapsed < 86400000) {
-    // 本地存储中的数据仍然有效
+    // 本地儲存中的資料仍然有效
     const remainingTime = 86400000 - timeElapsed;
     const remainingHours = Math.floor(remainingTime / 3600000);
     const remainingMinutes = Math.floor((remainingTime % 3600000) / 60000);
@@ -31,7 +31,7 @@ function fetchAlbumPath() {
     initialAlbumContent();
     updateAlbumList();
   } else {
-    // 本地存储中的数据过期或不存在，从本地 JSON 文件加载数据
+    // 本地儲存中的資料過期或不存在，從本地 JSON 檔案載入資料
     fetch("/images/directory_structure.json")
       .then((response) => response.json())
       .then((data) => {
@@ -154,7 +154,7 @@ function switchPageContent(link) {
     console.log("7a.已經在當前頁面，不需要切換");
    } 
 
-  // 根据 URL 切换显示内容
+  // 根據 URL 切換顯示內容
   if (url === "/pages/albums.html") {
     $("#resumeContent").removeClass("d-block").addClass("d-none"); // 隱藏履歷
     $("#albumContent").addClass("d-block").removeClass("d-none"); // 顯示相簿

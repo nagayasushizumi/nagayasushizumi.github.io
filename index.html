@@ -16,7 +16,7 @@
 <body>
   <div id="Navbar">
     <!-- Navbar-------------------------------------------------------- -->
-    <nav class="navbar navbar-expand-md bg-01396d navbar-dark fixed-top shadow">
+    <nav class="navbar navbar-expand-lg bg-01396d navbar-dark fixed-top shadow">
       <div class="container">
         <a id="" class="navbar-brand" href="#" onclick="switchPageContent(this); return false;">長安静美</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -35,10 +35,31 @@
             </li>
             <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table01"
                 onclick="switchPageContent(this); return false;">教學經歷</a></li>
-            <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table02"
-                onclick="switchPageContent(this); return false;">任教課程</a></li>
-            <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table03"
-                onclick="switchPageContent(this); return false;">獲獎記錄</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                href="">任教課程</a>
+              <ul class="dropdown-menu text-nowrap shadow">
+                <li><a class="nav-link text-dark mx-2" data-url="/pages/page_1.html" href="#course-1"
+                    onclick="switchPageContent(this); return false;">專任課程</a></li>
+                <hr>
+                <li><a class="nav-link text-dark mx-2" data-url="/pages/page_1.html" href="#course-2"
+                    onclick="switchPageContent(this); return false;">跨領域課程</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                href="">獲獎記錄</a>
+              <ul class="dropdown-menu text-nowrap shadow">
+                <li><a class="nav-link text-dark mx-2" data-url="/pages/page_1.html" href="#award-1"
+                    onclick="switchPageContent(this); return false;">教師獲獎影片</a></li>
+                <hr>
+                <li><a class="nav-link text-dark mx-2" data-url="/pages/page_1.html" href="#award-2"
+                    onclick="switchPageContent(this); return false;">教學獎項</a></li>
+                <hr>
+                <li><a class="nav-link text-dark mx-2" data-url="/pages/page_1.html" href="#award-3"
+                    onclick="switchPageContent(this); return false;">導師與學務輔導</a></li>
+              </ul>
+            </li>
             <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table04"
                 onclick="switchPageContent(this); return false;">研習紀錄</a></li>
             <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table05"
@@ -49,8 +70,29 @@
                 onclick="switchPageContent(this); return false;">校內外講座演講</a></li>
             <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table07"
                 onclick="switchPageContent(this); return false;">評審</a></li>
-            <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table08"
-                onclick="switchPageContent(this); return false;">著作</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                href="">著作</a>
+              <ul class="dropdown-menu text-nowrap shadow">
+                <li><a class="nav-link text-dark mx-2" data-url="/pages/page_1.html" href="#pub-1"
+                    onclick="switchPageContent(this); return false;">期刊論文</a></li>
+                <hr>
+                <li><a class="nav-link text-dark mx-2" data-url="/pages/page_1.html" href="#pub-2"
+                    onclick="switchPageContent(this); return false;">研討會論文</a></li>
+                <hr>
+                <li><a class="nav-link text-dark mx-2" data-url="/pages/page_1.html" href="#pub-3"
+                    onclick="switchPageContent(this); return false;">網路教學連結</a></li>
+                <hr>
+                <li><a class="nav-link text-dark mx-2" data-url="/pages/page_1.html" href="#pub-4"
+                    onclick="switchPageContent(this); return false;">筆譯著作</a></li>
+                <hr>
+                <li><a class="nav-link text-dark mx-2" data-url="/pages/page_1.html" href="#pub-5"
+                    onclick="switchPageContent(this); return false;">歌詞</a></li>
+                <hr>
+                <li><a class="nav-link text-dark mx-2" data-url="/pages/page_1.html" href="#pub-6"
+                    onclick="switchPageContent(this); return false;">口譯經歷</a></li>
+              </ul>
+            </li>
             <li class="nav-item"><a class="nav-link" data-url="/pages/page_1.html" href="#table99"
                 onclick="switchPageContent(this); return false;">連絡資訊</a></li>
           </ul>

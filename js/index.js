@@ -200,24 +200,29 @@
       });
       console.log("7a.已經在當前頁面，不需要切換");
     }
-    // 根据 URL 切换显示内容
+    // 根據 URL 切換顯示內容
     else if (url === "/pages/albums.html") {
       $("#resumeContent").removeClass("d-block").addClass("d-none"); // 隱藏履歷
       $("#albumContent").addClass("d-block").removeClass("d-none"); // 顯示相簿
       currentPage = url;
-      //點擊相簿的子相本a標籤時，用 Bootstrap 5 的方式來關閉下拉清單以及導航列，如果 上一層漢堡選單 現在有開啟，才會執行關閉它
-      console.log("7b.漢堡選單狀態", ($(".navbar-toggler").attr("aria-expanded") === "true"));
-      console.log("7b 檢查albumPath ：", albumPath);
       console.log("7b currentPage 目前在相簿頁：", currentPage);
-      if ($(".navbar-toggler").attr("aria-expanded") === "true") {
-        $(".navbar-toggler").click();
-      }
 
     } else {
       $("#resumeContent").addClass("d-block").removeClass("d-none"); // 顯示履歷
       $("#albumContent").removeClass("d-block").addClass("d-none"); // 隱藏相簿
       currentPage = url;
       console.log("7c. currentPage 已切換到履歷頁：", currentPage);
+    }
+
+    // 關閉所有已開啟的下拉選單
+    document.querySelectorAll('.dropdown-menu.show').forEach(function (menu) {
+      var dropdown = bootstrap.Dropdown.getInstance(menu.previousElementSibling);
+      if (dropdown) dropdown.hide();
+    });
+
+    // 如果漢堡選單開啟中，自動關閉
+    if ($(".navbar-toggler").attr("aria-expanded") === "true") {
+      $(".navbar-toggler").click();
     }
 
     // 嘗試滾動到指定的ID

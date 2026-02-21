@@ -15,7 +15,7 @@ async function fetchLocalPath(localPath) {
     const fetchPromises = dirEntries.map(dirEntry => {
       const fullPath = path.join(localPath, dirEntry.name);
       let relativePath = path.relative(baseDirectory, fullPath); // 計算相對於根目錄的相對路徑
-      relativePath = relativePath.split(path.sep).join('/'); // 將路徑分隔符由系统默认改为Web标准的斜杠
+      relativePath = relativePath.split(path.sep).join('/'); // 將路徑分隔符由系統預設改為Web標準的斜線
 
       if (dirEntry.isFile()) {
         return Promise.resolve({

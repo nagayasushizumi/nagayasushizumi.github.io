@@ -1,11 +1,11 @@
-.bg-img{
-    width:100%;
-    height:100%;
+.bg-img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     /*filter:brightness(0.6);*/
-    position:fixed;
-    top:0;
-    left:0;
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: -1;
 }
 
@@ -29,13 +29,13 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
-  }
+}
 
-.t-shadow{
+.t-shadow {
     text-shadow: 2px 2px 4px #000000;
 }
 
-.bg-01396d{
+.bg-01396d {
     background-color: #01396d;
 }
 
@@ -57,15 +57,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 200px; /* 固定高度 */
+    height: 200px;
+    /* 固定高度 */
     flex: 1 1 200px;
     border-radius: 8px;
 }
 
 .image-card img {
-    height: 100%; /* 高度充满容器 */
-    width: auto; /* 宽度自适应 */
-    object-fit: cover; /* 超出部分将被裁剪 */
+    height: 100%;
+    /* 高度充滿容器 */
+    width: auto;
+    /* 寬度自適應 */
+    object-fit: cover;
+    /* 超出部分將被裁剪 */
     justify-content: center;
     border-radius: 8px;
 }
@@ -80,21 +84,25 @@
 }
 
 @media (min-width: 992px) {
+
     .modal-lg,
     .modal-xl {
-      --bs-modal-width: 635px;
+        --bs-modal-width: 635px;
     }
-  }
+}
 
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
     .dropdown-menu {
         max-width: 90%;
     }
 }
 
-#album-List, hr {
+.navbar-nav .nav-link {
+    white-space: nowrap;
+}
+
+.dropdown-menu,
+hr {
     margin: 0;
     padding: 0;
 }
-
-
