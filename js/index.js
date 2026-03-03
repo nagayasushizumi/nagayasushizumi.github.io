@@ -269,6 +269,27 @@
     modal.show();
   }
 
+  // 開啟影片播放 Modal-----------------------------------------
+  function openVideoModal(videoSrc, title) {
+    const modalTitle = document.getElementById('videoModalLabel');
+    const modalVideo = document.getElementById('modalVideo');
+    const modalVideoSource = document.getElementById('modalVideoSource');
+
+    modalTitle.textContent = title || '影片播放';
+    modalVideoSource.src = videoSrc;
+    modalVideo.load(); // 重新載入影片來源
+
+    const videoModalEl = document.getElementById('videoModal');
+    const modal = new bootstrap.Modal(videoModalEl);
+    modal.show();
+
+    // 當 modal 關閉時，暫停影片播放
+    videoModalEl.addEventListener('hidden.bs.modal', function () {
+      modalVideo.pause();
+      modalVideo.currentTime = 0;
+    }, { once: true });
+  }
+
   // Navbar的List點擊事件-----------------------------------------
   $(document).ready(function () {
     $(".nav-link").click(function () {
@@ -311,4 +332,5 @@
   // 暴露必要的函式到全域作用域 (供 HTML onclick 使用)
   window.switchPageContent = switchPageContent;
   window.openPublicationModal = openPublicationModal;
+  window.openVideoModal = openVideoModal;
 })();

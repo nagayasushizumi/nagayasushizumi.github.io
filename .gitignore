@@ -407,3 +407,9 @@ FodyWeavers.xsd
 .DS_Store
 
 USER_GUIDE.md
+
+# Walkthrough 文件（本地使用，不上傳）
+walkthroughs/
+
+#回饋(本地使用，不上傳)
+feedback/

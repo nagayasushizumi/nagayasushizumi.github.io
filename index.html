@@ -119,6 +119,24 @@
     </div>
   </div>
 
+  <!-- Video Modal -->
+  <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="videoModalLabel">影片播放</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <video id="modalVideo" class="w-100" controls>
+            <source id="modalVideoSource" src="" type="video/mp4">
+            您的瀏覽器不支援影片播放。
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Publication Modal -->
   <div class="modal fade" id="publicationModal" tabindex="-1" aria-labelledby="publicationModalLabel"
     aria-hidden="true">
